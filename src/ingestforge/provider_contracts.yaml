@@ -1,0 +1,29 @@
+openai:
+  model_id_policy: opaque_string_required_when_live
+  structured_output: json_schema_strict
+  request_style:
+    responses_api: text.format.type=json_schema
+    chat_compat: response_format.type=json_schema
+  local_validation_required: true
+  live_smoke_optional: true
+
+deepseek:
+  model_id_policy: opaque_string_required_when_live
+  structured_output: json_object
+  thinking_control: true
+  thinking_default: disabled_for_json_tasks
+  request_style:
+    raw_rest: thinking top-level
+    openai_sdk: thinking in extra_body
+  local_validation_required: true
+  live_smoke_optional: true
+
+gemini:
+  model_id_policy: opaque_string_required_when_live
+  structured_output: json_schema_subset
+  request_style:
+    current_rest: generationConfig.responseFormat.text.mimeType/schema
+    current_python_sdk: config.response_format.text.mime_type/schema
+    legacy_rest: generationConfig.responseMimeType/responseSchema
+  local_validation_required: true
+  live_smoke_optional: true

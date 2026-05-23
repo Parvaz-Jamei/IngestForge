@@ -1,0 +1,10 @@
+extends: ../strict_industrial.yaml
+profile_name: deepseek_live_example
+pipeline:
+  mode: manual_url
+  external_calls: ai_only
+ai:
+  provider: deepseek
+  model: ${env:INGESTFORGE_DEEPSEEK_MODEL}
+  thinking:
+    enabled: false

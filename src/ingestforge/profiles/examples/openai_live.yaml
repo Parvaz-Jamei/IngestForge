@@ -1,0 +1,8 @@
+extends: ../strict_industrial.yaml
+profile_name: openai_live_example
+pipeline:
+  mode: manual_url
+  external_calls: ai_only
+ai:
+  provider: openai
+  model: ${env:INGESTFORGE_OPENAI_MODEL}

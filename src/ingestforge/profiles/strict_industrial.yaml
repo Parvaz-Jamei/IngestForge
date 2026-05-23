@@ -1,0 +1,75 @@
+profile_name: strict_industrial
+pipeline:
+  mode: validate_only
+  dry_run: true
+  human_review_required: true
+  external_calls: disabled
+  write_dataset: true
+  send_destination: false
+ai:
+  provider: mock
+  model: mock
+  structured_output: true
+  strict_structured_output: true
+  temperature: 0.1
+  max_input_chars_per_request: 30000
+  max_output_tokens: 5000
+  prompt_version: article_builder.v1
+  source_language: auto
+  target_languages: [en]
+  api_style: current_response_format
+search:
+  provider: manual
+  max_results: 20
+  allowed_domains: []
+  denied_domains: []
+  obey_robots_txt: true
+  timeout_seconds: 15
+  retry_attempts: 2
+fetch:
+  timeout_seconds: 20
+  max_html_bytes: 2000000
+  stream_downloads: true
+  deny_private_networks: true
+  recheck_after_redirect: true
+  require_https: false
+  robots_policy: fail_closed
+  robots_cache_ttl_seconds: 86400
+  max_robots_bytes: 262144
+  ssrf_mode: validate
+  user_agent: IngestForge/0.4.0a6
+media:
+  max_images_per_job: 12
+  max_image_bytes: 8000000
+  min_width: 500
+  min_height: 300
+  use_ocr: false
+  use_vision_ranker: true
+ocr:
+  provider: noop
+  languages: [eng]
+vision:
+  provider: local_heuristic
+  model: local-heuristic
+  max_images_to_send: 8
+  min_quality_score: 0.72
+dataset:
+  write_raw: true
+  write_clean: true
+  write_chunks: true
+  write_manifests: true
+  chunk_unit: tokens
+  tokenizer: approximate
+  tokenizer_model: o200k_base
+  chunk_size: 700
+  chunk_overlap: 100
+  write_data_card: true
+gates:
+  min_evidence_score: 0.35
+  min_source_count: 1
+  min_clean_text_chars: 1200
+  require_source_refs: true
+  fail_on_empty_extraction: true
+  allow_weak_claims: false
+destination:
+  provider: local_export

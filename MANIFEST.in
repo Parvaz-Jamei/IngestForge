@@ -1,0 +1,8 @@
+include README.md LICENSE CHANGELOG.md SECURITY.md CONTRIBUTING.md CODE_OF_CONDUCT.md CITATION.cff pyproject.toml pytest.ini
+recursive-include src/ingestforge/prompts *.j2
+recursive-include src/ingestforge/profiles *.yaml
+include src/ingestforge/py.typed
+recursive-include docs *.md
+recursive-include examples *.md *.py
+recursive-include scripts *.py
+recursive-include .github *.yml

@@ -1,0 +1,42 @@
+extends: manual_safe.yaml
+profile_name: destination_example
+destination:
+  provider: generic_rest
+  base_url: ${env:INGESTFORGE_DESTINATION_BASE_URL:https://example.com/api}
+  auth:
+    mode: bearer_token
+    token_env: INGESTFORGE_DESTINATION_TOKEN
+  endpoints:
+    csrf_bootstrap:
+      method: GET
+      path: /auth/csrf
+    create_content:
+      method: POST
+      path: /content/review
+    upload_asset:
+      method: POST
+      path: /content/{content_id}/assets
+      content_type: multipart
+    source_ref:
+      method: POST
+      path: /content/{content_id}/sources
+    verify:
+      method: GET
+      path: /content/{content_id}
+  payload_templates:
+    create_content:
+      status: review
+      title: "{{ article.title.en }}"
+      body: "{{ article.body.en }}"
+      tags: "{{ article.tags }}"
+  response_map:
+    create_content:
+      content_id: data.id
+    upload_asset:
+      asset_id: data.asset.id
+  retry:
+    attempts: 3
+    backoff_seconds: 0
+  idempotency:
+    enabled: true
+    header: Idempotency-Key

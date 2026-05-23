@@ -1,0 +1,11 @@
+extends: manual_safe.yaml
+profile_name: dataset_only
+pipeline:
+  mode: dataset_only
+  dry_run: true
+  human_review_required: true
+  external_calls: disabled
+  write_dataset: true
+  send_destination: false
+destination:
+  provider: local_export

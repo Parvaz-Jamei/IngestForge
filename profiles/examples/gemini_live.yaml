@@ -1,0 +1,11 @@
+extends: ../strict_industrial.yaml
+profile_name: gemini_live_example
+pipeline:
+  mode: manual_url
+  external_calls: ai_only
+ai:
+  provider: gemini
+  model: ${env:INGESTFORGE_GEMINI_MODEL}
+  source_language: ${env:INGESTFORGE_SOURCE_LANGUAGE:auto}
+  target_languages: ${env:INGESTFORGE_TARGET_LANGUAGES:en}
+  api_style: current_response_format

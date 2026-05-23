@@ -1,0 +1,14 @@
+extends: ../strict_industrial.yaml
+profile_name: strict_live_template
+pipeline:
+  mode: search_to_dataset
+  external_calls: enabled
+ai:
+  provider: ${env:INGESTFORGE_AI_PROVIDER}
+  model: ${env:INGESTFORGE_AI_MODEL}
+search:
+  provider: ${env:INGESTFORGE_SEARCH_PROVIDER:manual}
+  allowed_domains:
+    - ${env:INGESTFORGE_ALLOWED_DOMAIN}
+fetch:
+  ssrf_mode: strict_allowlist
