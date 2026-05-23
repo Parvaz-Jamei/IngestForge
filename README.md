@@ -6,6 +6,9 @@
 [![Python](https://img.shields.io/badge/python-3.11%20%7C%203.12%20%7C%203.13%20%7C%203.14-blue)](https://www.python.org/)
 [![Status](https://img.shields.io/badge/status-alpha-orange)](#project-status)
 [![License](https://img.shields.io/badge/license-MIT-green)](https://github.com/Parvaz-Jamei/IngestForge/blob/main/LICENSE)
+[![PyPI](https://img.shields.io/pypi/v/ingestforge.svg)](https://pypi.org/project/ingestforge/)
+[![TestPyPI](https://img.shields.io/badge/TestPyPI-ingestforge-blue)](https://test.pypi.org/project/ingestforge/)
+[![Zenodo](https://img.shields.io/badge/Zenodo-archive%20after%20release-1682D4)](https://zenodo.org/)
 [![Typed](https://img.shields.io/badge/typing-py.typed-blueviolet)](src/ingestforge/py.typed)
 
 IngestForge is a lightweight, profile-driven Python library for building **reviewable ingestion pipelines**. It does not try to be a giant agent framework. It focuses on one practical workflow:
@@ -410,12 +413,19 @@ python -m pytest -q
 python -m ruff check .
 python -m ruff format --check .
 python -m mypy src/ingestforge
+python scripts/clean_release_artifacts.py
+python scripts/release_hygiene_check.py
 python -m build --sdist --wheel
 python -m twine check dist/*
-python scripts/release_hygiene_check.py
 ```
 
 The repository also includes GitHub Actions for CI and package publishing. PyPI/TestPyPI publishing should use Trusted Publishing where possible rather than long-lived upload tokens.
+
+Project release links:
+
+- PyPI: https://pypi.org/project/ingestforge/
+- TestPyPI: https://test.pypi.org/project/ingestforge/
+- Zenodo: enable the GitHub integration and create a GitHub release; then replace the general Zenodo link/badge with the minted DOI record. Do not add a fake DOI before Zenodo creates one.
 
 ## Repository layout
 
