@@ -1,5 +1,7 @@
 from __future__ import annotations
 
+import re
+
 import pytest
 from typer.testing import CliRunner
 
@@ -11,6 +13,12 @@ from ingestforge.core.prompts import prompt_registry, resolve_prompt
 from ingestforge.providers.ai.deepseek_provider import DeepSeekProvider
 
 runner = CliRunner()
+
+ANSI_RE = re.compile(r"\x1b\[[0-?]*[ -/]*[@-~]")
+
+
+def strip_ansi(text: str) -> str:
+    return ANSI_RE.sub("", text)
 
 
 def test_prompt_version_resolves_to_packaged_template():
@@ -43,13 +51,15 @@ def test_provider_payload_uses_resolved_prompt_template():
 def test_cli_help_has_clean_boolean_flags():
     ingest_help = runner.invoke(app, ["ingest-url", "--help"])
     assert ingest_help.exit_code == 0
-    assert "--no-external-calls" in ingest_help.output
-    assert "--no-no-external-calls" not in ingest_help.output
+    ingest_output = strip_ansi(ingest_help.output)
+    assert "--no-external-calls" in ingest_output
+    assert "--no-no-external-calls" not in ingest_output
 
     doctor_help = runner.invoke(app, ["doctor", "providers", "--help"])
     assert doctor_help.exit_code == 0
-    assert "--offline" in doctor_help.output
-    assert "--no-offline" not in doctor_help.output
+    doctor_output = strip_ansi(doctor_help.output)
+    assert "--offline" in doctor_output
+    assert "--no-offline" not in doctor_output
 
 
 def test_doctor_offline_flag_overrides_live_flag(monkeypatch):

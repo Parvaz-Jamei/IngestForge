@@ -4,7 +4,21 @@ title: "IngestForge: Config-driven AI content ingestion and provenance-aware RAG
 authors:
   - family-names: "Jamei"
     given-names: "Parvaz"
+    orcid: "https://orcid.org/0009-0002-9980-270X"
+abstract: "IngestForge is a lightweight, config-driven Python library for safe web ingestion, optional Trafilatura-backed extraction, evidence-gated AI article generation, provenance ledgers, RAG dataset chunks, data cards, and configurable multi-provider exports."
+keywords:
+  - "AI content ingestion"
+  - "RAG"
+  - "provenance"
+  - "web extraction"
+  - "structured output"
+  - "audit trail"
+  - "dataset generation"
+  - "OpenAI"
+  - "Gemini"
+  - "DeepSeek"
 version: "0.4.0a6"
 date-released: "2026-05-23"
-license: "Apache-2.0"
-repository-code: "https://github.com/Parvaz-Jamei/ingestforge"
+license: "MIT"
+repository-code: "https://github.com/Parvaz-Jamei/IngestForge"
+type: software

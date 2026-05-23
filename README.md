@@ -5,7 +5,7 @@
 [![CI](https://github.com/Parvaz-Jamei/ingestforge/actions/workflows/ci.yml/badge.svg)](https://github.com/Parvaz-Jamei/ingestforge/actions/workflows/ci.yml)
 [![Python](https://img.shields.io/badge/python-3.11%20%7C%203.12%20%7C%203.13%20%7C%203.14-blue)](https://www.python.org/)
 [![Status](https://img.shields.io/badge/status-alpha-orange)](#project-status)
-[![License](https://img.shields.io/badge/license-MIT-green)](LICENSE)
+[![License](https://img.shields.io/badge/license-MIT-green)](https://github.com/Parvaz-Jamei/IngestForge/blob/main/LICENSE)
 [![Typed](https://img.shields.io/badge/typing-py.typed-blueviolet)](src/ingestforge/py.typed)
 
 IngestForge is a lightweight, profile-driven Python library for building **reviewable ingestion pipelines**. It does not try to be a giant agent framework. It focuses on one practical workflow:
@@ -444,8 +444,8 @@ Near-term priorities:
 
 ## Citation
 
-See [`CITATION.cff`](CITATION.cff). If you use IngestForge in research software, dataset construction, or portfolio demonstrations, cite the repository or release tag.
+See [`CITATION.cff`](https://github.com/Parvaz-Jamei/IngestForge/blob/main/CITATION.cff). If you use IngestForge in research software, dataset construction, or portfolio demonstrations, cite the repository or release tag.
 
 ## License
 
-MIT License. See [`LICENSE`](LICENSE).
+MIT License. See [`LICENSE`](https://github.com/Parvaz-Jamei/IngestForge/blob/main/LICENSE).
